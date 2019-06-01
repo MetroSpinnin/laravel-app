@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Request;
+use App\Http\Requests\CreateArticleRequest;
 use App\ArticleModel;
 
 class ArticlesController extends Controller
@@ -21,9 +22,9 @@ class ArticlesController extends Controller
     	return view('article.create');
     }
 
-    public function store(){
-    	$input = Request::all();
-    	ArticleModel::create($input);
+    public function store(CreateArticleRequest $request){
+    	
+    	ArticleModel::create($request->all());
     	return redirect('articles');
     }
 }

@@ -12,4 +12,11 @@
 		<input type="submit" class="btn btn-success" value="submit">
 	</form>
 
+	@if($errors->any())
+		<ul>
+			@foreach($errors->all() as $error)
+			<li>{{$error}}</li>
+		</ul>
+			@endforeach
+	@endif
 @endsection
